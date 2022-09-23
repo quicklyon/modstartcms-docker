@@ -22,7 +22,7 @@
 
 系统完全开源，基于 **Apache 2.0** 开源协议，**免费且不限制商业使用**。
 
-![screenshots](https://raw.githubusercontent.com/quicklyon/modstartcms-docker//.template/screenshot.png)
+![screenshots](https://raw.githubusercontent.com/quicklyon/modstartcms-docker/master/.template/screenshot.png)
 
 ModStartCMS官网：[https://modstart.com/](https://modstart.com/)
 
