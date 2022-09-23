@@ -1,30 +1,30 @@
 <!-- 该文档是模板生成，手动修改的内容会被覆盖，详情参见：https://github.com/quicklyon/template-toolkit -->
-# QuickOn ModStart 应用镜像
+# QuickOn ModStartCMS 应用镜像
 
-[![GitHub Workflow Status](https://github.com/quicklyon/modstart-docker/actions/workflows/docker.yml/badge.svg)](https://github.com/quicklyon/modstart/actions/workflows/docker.yml)
-![Docker Pulls](https://img.shields.io/docker/pulls/easysoft/modstart?style=flat-square)
-![Docker Image Size](https://img.shields.io/docker/image-size/easysoft/modstart?style=flat-square)
-![GitHub tag](https://img.shields.io/github/v/tag/quicklyon/modstart-docker?style=flat-square)
+[![GitHub Workflow Status](https://github.com/quicklyon/modstartcms-docker/actions/workflows/docker.yml/badge.svg)](https://github.com/quicklyon/modstartcms/actions/workflows/docker.yml)
+![Docker Pulls](https://img.shields.io/docker/pulls/easysoft/modstartcms?style=flat-square)
+![Docker Image Size](https://img.shields.io/docker/image-size/easysoft/modstartcms?style=flat-square)
+![GitHub tag](https://img.shields.io/github/v/tag/quicklyon/modstartcms-docker?style=flat-square)
 
 > 申明: 该软件镜像是由QuickOn打包。在发行中提及的各自商标由各自的公司或个人所有，使用它们并不意味着任何从属关系。
 
 ## 快速参考
 
-- 通过 [渠成软件百宝箱](https://www.qucheng.com/app-install/install-modstart-<number>.html) 一键安装 **ModStart**
-- [Dockerfile 源码](https://github.com/quicklyon/modstart-docker)
-- [ModStart 源码](https://github.com/modstart/ModStartCMS)
-- [ModStart 官网](https://modstart.com/)
+- 通过 [渠成软件百宝箱](https://www.qucheng.com/app-install/install-modstart-<number>.html) 一键安装 **ModStartCMS**
+- [Dockerfile 源码](https://github.com/quicklyon/modstartcms-docker)
+- [ModStartCMS 源码](https://github.com/modstart/ModStartCMS)
+- [ModStartCMS 官网](https://modstart.com/)
 
-## 一、关于 ModStart
+## 一、关于 ModStartCMS
 
 <!-- 这里写应用的【介绍信息】 -->
 `ModStartCMS` 是一个基于 `Laravel` 企业内容建站系统。模块市场拥有丰富的功能应用，支持后台一键快速安装，让开发者能快的实现业务功能开发。 
 
 系统完全开源，基于 **Apache 2.0** 开源协议，**免费且不限制商业使用**。
 
-![screenshots](https://raw.githubusercontent.com/quicklyon/modstart-docker//.template/screenshot.png)
+![screenshots](https://raw.githubusercontent.com/quicklyon/modstartcms-docker//.template/screenshot.png)
 
-ModStart官网：[https://modstart.com/](https://modstart.com/)
+ModStartCMS官网：[https://modstart.com/](https://modstart.com/)
 
 <!-- 这里写应用的【附加信息】 -->
 ###  系统特性
@@ -43,7 +43,7 @@ ModStart官网：[https://modstart.com/](https://modstart.com/)
 
 ## 二、支持的版本(Tag)
 
-由于版本比较多,这里只列出最新的5个版本,更详细的版本列表请参考:[可用版本列表](https://hub.docker.com/r/easysoft/modstart/tags/)
+由于版本比较多,这里只列出最新的5个版本,更详细的版本列表请参考:[可用版本列表](https://hub.docker.com/r/easysoft/modstartcms/tags/)
 
 ## 三、获取镜像
 
@@ -51,13 +51,13 @@ ModStart官网：[https://modstart.com/](https://modstart.com/)
 - [latest](https://github.com/modstart/ModStartCMS/releases)
 - [4.8.0-20220923](https://github.com/modstart/ModStartCMS/releases/tag/4.8.0)
 
-推荐从 [Docker Hub Registry](https://hub.docker.com/r/easysoft/modstart) 拉取我们构建好的官方Docker镜像。
+推荐从 [Docker Hub Registry](https://hub.docker.com/r/easysoft/modstartcms) 拉取我们构建好的官方Docker镜像。
 
 ```bash
 docker pull easysoft/modstart:latest
 ```
 
-如需使用指定的版本,可以拉取一个包含版本标签的镜像,在Docker Hub仓库中查看 [可用版本列表](https://hub.docker.com/r/easysoft/modstart/tags/)
+如需使用指定的版本,可以拉取一个包含版本标签的镜像,在Docker Hub仓库中查看 [可用版本列表](https://hub.docker.com/r/easysoft/modstartcms/tags/)
 
 ```bash
 docker pull easysoft/modstart:[TAG]
@@ -83,7 +83,7 @@ docker pull easysoft/modstart:latest
 
 ```bash
 services:
-  ModStart:
+  ModStartCMS:
   ...
     volumes:
       - /path/to/persistence:/data
@@ -123,7 +123,7 @@ make run
 make ps
 
 # 查看服务日志
-docker-compose logs -f modstart
+docker-compose logs -f modstartcms
 
 ```
 
@@ -134,8 +134,8 @@ docker-compose logs -f modstart
 - 启动成功后，打开浏览器输入 `http://<你的IP>:8080` 访问管理后台
 - 默认用户名：`admin`，默认密码：`spug.dev`
 -->
-- [VERSION](https://github.com/quicklyon/modstart-docker/blob//VERSION) 文件中详细的定义了Makefile可以操作的版本
-- [docker-compose.yml](https://github.com/quicklyon/modstart-docker/blob//docker-compose.yml)
+- [VERSION](https://github.com/quicklyon/modstartcms-docker/blob//VERSION) 文件中详细的定义了Makefile可以操作的版本
+- [docker-compose.yml](https://github.com/quicklyon/modstartcms-docker/blob//docker-compose.yml)
 
 ## 七、版本升级
 

@@ -1,17 +1,17 @@
 {
-    "Name": "ModStart",
+    "Name": "ModStartCMS",
     "Version": "4.8.0",
     "Home": "https://modstart.com/",
     "Maintainer": "zhouyueqiu zhouyueqiu@easycorp.ltd",
     "GitUrl": "https://github.com/modstart/ModStartCMS",
-    "DockerfileUrl": "https://github.com/quicklyon/modstart-docker",
+    "DockerfileUrl": "https://github.com/quicklyon/modstartcms-docker",
     "DockerfileRepoBranch":"",
     "InstallDocUrl": "https://www.qucheng.com/app-install/install-modstart-<number>.html",
     "Docker": {
         "Name": "modstart",
         "OS": "debian-11",
         "ImageOS": "easysoft/debian:11",
-        "Repo": "https://hub.docker.com/r/easysoft/modstart",
-        "TagUrl": "https://hub.docker.com/r/easysoft/modstart/tags/"
+        "Repo": "https://hub.docker.com/r/easysoft/modstartcms",
+        "TagUrl": "https://hub.docker.com/r/easysoft/modstartcms/tags/"
     }
 }
