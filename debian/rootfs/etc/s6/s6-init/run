@@ -35,7 +35,10 @@ if [ ! -f /data/.init_cfg ];then
         mv "${ldir/data/apps}" "$(dirname $ldir)"
         make_soft_link "$ldir" "${ldir/data/apps}" "www-data"
     done
-    make_soft_link "/apps/modstart/vendor" "/data/modstart/vendor" "www-data"
+    make_soft_link "/apps/modstartcms/vendor" "/data/modstartcms/vendor" "www-data"
+    make_soft_link "/apps/modstartcms/bootstrap" "/data/modstartcms/bootstrap" "www-data"
+    make_soft_link "/apps/modstartcms/storage" "/data/modstartcms/storage" "www-data"
+    
     touch /data/.init_cfg
 else
     for ldir in "${PERSISTENCE_LINK_LIST[@]}"
@@ -55,7 +58,7 @@ info "Render php.ini with environment variables."
 #================================#
 #   Prepare ModStart env file    #
 #================================#
-MODSTART_ENV="/apps/modstart/env"
+MODSTART_ENV="/apps/modstartcms/env"
 info "Render ModStart config with envionment variables."
 /usr/bin/render-template ${MODSTART_ENV}.tpl > $MODSTART_ENV
 

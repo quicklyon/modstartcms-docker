@@ -8,7 +8,7 @@
     "DockerfileRepoBranch":"",
     "InstallDocUrl": "https://www.qucheng.com/app-install/install-modstart-<number>.html",
     "Docker": {
-        "Name": "modstart",
+        "Name": "modstartcms",
         "OS": "debian-11",
         "ImageOS": "easysoft/debian:11",
         "Repo": "https://hub.docker.com/r/easysoft/modstartcms",

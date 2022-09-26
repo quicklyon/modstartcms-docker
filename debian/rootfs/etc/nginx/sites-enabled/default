@@ -3,7 +3,7 @@ server {
     server_name  _;
     charset utf-8;
     index index.php index.html;
-    root /apps/modstart/public;
+    root /apps/modstartcms/public;
     autoindex off;
 
     add_header Access-Control-Allow-Origin *;

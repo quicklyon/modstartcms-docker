@@ -35,17 +35,17 @@ ENV EASYSOFT_APP_NAME="ModStart $APP_VER"
 
 RUN mkdir /apps \
     && cd /apps \
-    && curl -skL -o modstart.tar.gz https://github.com/modstart/ModStartCMS/archive/refs/tags/${APP_VER}.tar.gz \
-    && tar xvzf modstart.tar.gz \
-    && mv ModStartCMS-4.8.0 modstart \
-    && rm -rf modstart.tar.gz
+    && curl -skL -o modstartcms.tar.gz https://github.com/modstart/ModStartCMS/archive/refs/tags/${APP_VER}.tar.gz \
+    && tar xvzf modstartcms.tar.gz \
+    && mv ModStartCMS-4.8.0 modstartcms \
+    && rm -rf modstartcms.tar.gz
 
 # Copy modstart config files
 COPY debian/rootfs /
 
 # Copy modstart source code
-WORKDIR /apps/modstart
-RUN chown www-data.www-data /apps/modstart -R 
+WORKDIR /apps/modstartcms
+RUN chown www-data.www-data /apps/modstartcms -R 
 
 EXPOSE 80
 

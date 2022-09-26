@@ -10,17 +10,11 @@ export PHP_ERROR_LOG=${PHP_ERROR_LOG:-/data/php/log/error.log}
 #===========#
 #   MySQL   #
 #===========#
-export MYSQL_HOST=${MYSQL_HOST:-127.0.0.1}
-export MYSQL_PORT=${MYSQL_PORT:-3306}
-export MYSQL_DB=${MYSQL_DB:-modstart}
-export MYSQL_USER=${MYSQL_USER:-root}
-export MYSQL_PASSWORD=${MYSQL_PASSWORD:-pass4you}
-
-#==========#
-# Apache   #
-#==========#
-export APP_DOMAIN=${APP_DOMAIN:-*}
-export DOCUMENT_ROOT=${DOCUMENT_ROOT:-/apps/modstart/public}
+export DB_HOST=${MYSQL_HOST:-127.0.0.1}
+export DB_PORT=${MYSQL_PORT:-3306}
+export DB_DATABASE=${MYSQL_DB:-modstart}
+export DB_USERNAME=${MYSQL_USER:-root}
+export DB_PASSWORD=${MYSQL_PASSWORD:-pass4you}
 
 # ======================#
 # Persistence directory #
@@ -28,11 +22,11 @@ export DOCUMENT_ROOT=${DOCUMENT_ROOT:-/apps/modstart/public}
 export PHP_PERSISTENCE_LIST=(
 "/data/php/log"
 "/data/php/session"
-"/data/modstart")
+"/data/modstartcms")
 
 #==========================================#
 # Persistence directory and make soft link #
 #==========================================#
 export PERSISTENCE_LINK_LIST=(
-"/data/modstart/public/data"
-"/data/modstart/module")
+"/data/modstartcms/public/data"
+"/data/modstartcms/module")

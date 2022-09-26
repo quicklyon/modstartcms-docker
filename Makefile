@@ -1,4 +1,4 @@
-export APP_NAME=modstart
+export APP_NAME=modstartcms
 export VERSION := $(shell cat VERSION)
 export BUILD_DATE := $(shell date +'%Y%m%d')
 export TAG=$(VERSION)-$(BUILD_DATE)

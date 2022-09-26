@@ -10,13 +10,13 @@ services:
       - 'db:/var/lib/mysql'
     environment:
       - MYSQL_ROOT_PASSWORD=pass4Quick0n
-      - MYSQL_DATABASE=modstart
+      - MYSQL_DATABASE=modstartcms
     networks:
       - net
 
   modstart:
-    image: hub.qucheng.com/app/modstart:${TAG:-latest}
-    container_name: modstart
+    image: hub.qucheng.com/app/modstartcms:${TAG:-latest}
+    container_name: modstartcms
     ports:
       - '8080:80'
     volumes:
@@ -28,7 +28,7 @@ services:
       - MYSQL_PORT=3306
       - MYSQL_USER=root
       - MYSQL_PASSWORD=pass4Quick0n
-      - MYSQL_DB=modstart
+      - MYSQL_DB=modstartcms
       - DEBUG=true
       - IS_CONTAINER=true
     networks:
