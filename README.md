@@ -49,18 +49,18 @@ ModStartCMS官网：[https://modstart.com/](https://modstart.com/)
 
 <!-- 这里是镜像的【Tag】信息，通过命令维护，详情参考：https://github.com/quicklyon/template-toolkit -->
 - [latest](https://github.com/modstart/ModStartCMS/releases)
-- [4.8.0-20220923](https://github.com/modstart/ModStartCMS/releases/tag/4.8.0)
+- [4.8.0-20220926](https://github.com/modstart/ModStartCMS/releases/tag/4.8.0)
 
 推荐从 [Docker Hub Registry](https://hub.docker.com/r/easysoft/modstartcms) 拉取我们构建好的官方Docker镜像。
 
 ```bash
-docker pull easysoft/modstart:latest
+docker pull easysoft/modstartcms:latest
 ```
 
 如需使用指定的版本,可以拉取一个包含版本标签的镜像,在Docker Hub仓库中查看 [可用版本列表](https://hub.docker.com/r/easysoft/modstartcms/tags/)
 
 ```bash
-docker pull easysoft/modstart:[TAG]
+docker pull easysoft/modstartcms:[TAG]
 ```
 
 ## 四、持久化数据
@@ -76,7 +76,7 @@ docker pull easysoft/modstart:[TAG]
 ```bash
 $ docker run -it \
     -v $PWD/data:/data \
-docker pull easysoft/modstart:latest
+docker pull easysoft/modstartcms:latest
 ```
 
 或者修改 docker-compose.yml 文件，添加持久化目录配置
