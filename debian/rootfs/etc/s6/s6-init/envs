@@ -29,4 +29,17 @@ export PHP_PERSISTENCE_LIST=(
 #==========================================#
 export PERSISTENCE_LINK_LIST=(
 "/data/modstartcms/public/data"
-"/data/modstartcms/module")
+"/data/modstartcms/storage")
+
+# module list for rsync
+export MODULE_LIST=(
+"AdminManager"
+"Article"
+"Banner"
+"Cms"
+"Member"
+"ModuleStore"
+"Nav"
+"Partner"
+"Site"
+"Vendor")

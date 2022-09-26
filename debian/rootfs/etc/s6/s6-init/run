@@ -35,9 +35,27 @@ if [ ! -f /data/.init_cfg ];then
         mv "${ldir/data/apps}" "$(dirname $ldir)"
         make_soft_link "$ldir" "${ldir/data/apps}" "www-data"
     done
+
+    # process module directory
+    ensure_dir_exists "/data/modstartcms/module" "www-data"
+    for m in "${MODULE_LIST[@]}"
+    do
+        info "Rsync /apps/modstartcms/module/$m to /data/modstartcms/module ..."
+        rsync -a --delete /apps/modstartcms/module/"$m" /data/modstartcms/module
+    done
+    make_soft_link "/data/modstartcms/module" "/apps/modstartcms/module" "www-data"
+
+    # process other directory
     make_soft_link "/apps/modstartcms/vendor" "/data/modstartcms/vendor" "www-data"
     make_soft_link "/apps/modstartcms/bootstrap" "/data/modstartcms/bootstrap" "www-data"
-    make_soft_link "/apps/modstartcms/storage" "/data/modstartcms/storage" "www-data"
+    make_soft_link "/apps/modstartcms/app" "/data/modstartcms/app" "www-data"
+
+    # process .env file
+    [ ! -e /data/modstartcms/.env ] \
+    && touch /data/modstartcms/.env \
+    && owned_by "/data/modstartcms/.env" "www-data"
+
+    make_soft_link "/data/modstartcms/.env" "/apps/modstartcms/.env" "www-data"
     
     touch /data/.init_cfg
 else
@@ -45,6 +63,16 @@ else
     do
         make_soft_link "$ldir" "${ldir/data/apps}" "www-data"
     done
+
+    for m in "${MODULE_LIST[@]}"
+    do
+        info "Rsync /apps/modstartcms/module/$m to /data/modstartcms/module ..."
+        rsync -a --delete /apps/modstartcms/module/"$m" /data/modstartcms/module
+    done
+
+    # make .env file soft link
+    make_soft_link "/data/modstartcms/.env" "/apps/modstartcms/.env" "www-data"
+
 fi
 
 #=====================#
@@ -70,3 +98,6 @@ wait_for_mysql || exit 1
 
 # Initialize database
 mysql_init_db "$MYSQL_DB"
+
+# Clear install.php
+[ -e /apps/modstartcms/storage/install.lock ] && rm -f /apps/modstartcms/public/install.php

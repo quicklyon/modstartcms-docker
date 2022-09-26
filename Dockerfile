@@ -14,7 +14,7 @@ ENV TZ=Asia/Shanghai \
 ARG IS_CHINA="true"
 ENV MIRROR=${IS_CHINA}
 
-RUN install_packages curl wget zip unzip pwgen cron netcat nginx
+RUN install_packages curl wget zip unzip pwgen cron netcat nginx rsync
 
 # Install s6
 RUN . /opt/easysoft/scripts/libcomponent.sh && component_unpack "s6" "2.11.1.3" --checksum e713c386993f7891b039256ec264b69240959fb685c75a585bccf63325cc2596
@@ -33,12 +33,19 @@ ARG VERSION
 ENV APP_VER=${VERSION}
 ENV EASYSOFT_APP_NAME="ModStart $APP_VER"
 
+# RUN mkdir /apps \
+#     && cd /apps \
+#     && curl -skL -o modstartcms.tar.gz https://github.com/modstart/ModStartCMS/archive/refs/tags/${APP_VER}.tar.gz \
+#     && tar xvzf modstartcms.tar.gz \
+#     && mv ModStartCMS-${VERSION} modstartcms \
+#     && rm -rf modstartcms.tar.gz
+
 RUN mkdir /apps \
     && cd /apps \
-    && curl -skL -o modstartcms.tar.gz https://github.com/modstart/ModStartCMS/archive/refs/tags/${APP_VER}.tar.gz \
-    && tar xvzf modstartcms.tar.gz \
-    && mv ModStartCMS-4.8.0 modstartcms \
-    && rm -rf modstartcms.tar.gz
+    && curl -skL -o modstartcms.zip https://github.com/modstart/ModStartCMS/archive/refs/heads/master.zip \
+    && unzip modstartcms.zip \
+    && mv ModStartCMS-master modstartcms \
+    && rm -rf modstartcms.zip
 
 # Copy modstart config files
 COPY debian/rootfs /
