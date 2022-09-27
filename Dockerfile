@@ -45,14 +45,15 @@ RUN mkdir /apps \
     && curl -skL -o modstartcms.zip https://github.com/modstart/ModStartCMS/archive/refs/heads/master.zip \
     && unzip modstartcms.zip \
     && mv ModStartCMS-master modstartcms \
-    && rm -rf modstartcms.zip
+    && rm -rf modstartcms.zip \
+    && rm -f /etc/nginx/sites-enabled/*
 
 # Copy modstart config files
 COPY debian/rootfs /
 
 # Copy modstart source code
 WORKDIR /apps/modstartcms
-RUN chown www-data.www-data /apps/modstartcms -R 
+RUN chown www-data.www-data /apps/modstartcms -R
 
 EXPOSE 80
 

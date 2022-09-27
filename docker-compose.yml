@@ -29,6 +29,7 @@ services:
       - MYSQL_USER=root
       - MYSQL_PASSWORD=pass4Quick0n
       - MYSQL_DB=modstartcms
+      - FORCE_SCHEMA=http
       - DEBUG=true
       - IS_CONTAINER=true
     networks:

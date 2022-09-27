@@ -49,6 +49,8 @@ if [ ! -f /data/.init_cfg ];then
     make_soft_link "/apps/modstartcms/vendor" "/data/modstartcms/vendor" "www-data"
     make_soft_link "/apps/modstartcms/bootstrap" "/data/modstartcms/bootstrap" "www-data"
     make_soft_link "/apps/modstartcms/app" "/data/modstartcms/app" "www-data"
+    make_soft_link "/apps/modstartcms/license_url.txt" "/data/modstartcms/license_url.txt" "www-data"
+    make_soft_link "/apps/modstartcms/public/data_demo" "/data/modstartcms/public/data_demo" "www-data"
 
     # process .env file
     [ ! -e /data/modstartcms/.env ] \
@@ -83,6 +85,13 @@ PHP_INI="/usr/local/etc/php/php.ini"
 info "Render php.ini with environment variables."
 /usr/bin/render-template ${PHP_INI}.tpl > ${PHP_INI}
 
+#=====================#
+#   Prepare Nginx     #
+#=====================#
+VHOST_CFG="/etc/nginx/sites-enabled/default"
+info "Render nginx virtual host config with environment variables."
+/usr/bin/render-template ${VHOST_CFG}.tpl > ${VHOST_CFG}.conf
+
 #================================#
 #   Prepare ModStart env file    #
 #================================#
@@ -96,8 +105,8 @@ info "Render ModStart config with envionment variables."
 # Check and waiting mysql to be ready
 wait_for_mysql || exit 1
 
-# Initialize database
-mysql_init_db "$MYSQL_DB"
 
 # Clear install.php
-[ -e /apps/modstartcms/storage/install.lock ] && rm -f /apps/modstartcms/public/install.php
+if [ -e /apps/modstartcms/storage/install.lock ];then
+    rm -f /apps/modstartcms/public/install.php
+fi

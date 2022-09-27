@@ -7,6 +7,9 @@ export PHP_SESSION_TYPE=${PHP_SESSION_TYPE:-files}
 export PHP_SESSION_PATH=${PHP_SESSION_PATH:-/data/php/session}
 export PHP_ERROR_LOG=${PHP_ERROR_LOG:-/data/php/log/error.log}
 
+# Nginx
+export APP_DOMAIN=${APP_DOMAIN:-_}
+
 #===========#
 #   MySQL   #
 #===========#

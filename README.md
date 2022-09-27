@@ -49,7 +49,7 @@ ModStartCMS官网：[https://modstart.com/](https://modstart.com/)
 
 <!-- 这里是镜像的【Tag】信息，通过命令维护，详情参考：https://github.com/quicklyon/template-toolkit -->
 - [latest](https://github.com/modstart/ModStartCMS/releases)
-- [4.8.0-20220926](https://github.com/modstart/ModStartCMS/releases/tag/4.8.0)
+- [4.8.0-20220927](https://github.com/modstart/ModStartCMS/releases/tag/4.8.0)
 
 推荐从 [Docker Hub Registry](https://hub.docker.com/r/easysoft/modstartcms) 拉取我们构建好的官方Docker镜像。
 
@@ -93,23 +93,16 @@ services:
 ## 五、环境变量
 
 <!-- 这里写应用的【环境变量信息】 -->
-
-<!-- 示例：
-
 | 变量名           | 默认值        | 说明                             |
 | ---------------- | ------------- | -------------------------------- |
 | EASYSOFT_DEBUG   | false         | 是否打开调试信息，默认关闭       |
 | MYSQL_HOST       | 127.0.0.1     | MySQL 主机地址                   |
 | MYSQL_PORT       | 3306          | MySQL 端口                       |
-| MYSQL_DB         | spug          | spug 数据库名称                 |
+| MYSQL_DB         | modstartcms   | 数据库名称                 |
 | MYSQL_USER       | root          | MySQL 用户名                      |
-| MYSQL_PASSWORD   | pass4Spug     | MySQL 密码                        |
-| REDIS_HOST       | 127.0.0.1     | Redis 服务地址 |
-| REDIS_PORT       | 6379          | Redis 端口 |
-| DEFAULT_ADMIN_USER| admin        | 默认管理员名称             |
-| DEFAULT_ADMIN_PASSWORD | spug.dev | 默认管理员密码 |
-
--->
+| MYSQL_PASSWORD   | pass4Quick0n  | MySQL 密码                        |
+| FORCE_SCHEMA     | http          | 服务web协议类型，可选项 http或https  |
+| IS_CONTAINER     | true          | 标记是否为容器运行  |
 
 ## 六、运行
 
@@ -128,15 +121,36 @@ docker-compose logs -f modstartcms
 ```
 
 <!-- 这里写应用的【make命令的备注信息】位于文档最后端 -->
-<!-- 示例
 **说明:**
 
-- 启动成功后，打开浏览器输入 `http://<你的IP>:8080` 访问管理后台
-- 默认用户名：`admin`，默认密码：`spug.dev`
--->
+- 启动成功后，打开浏览器输入 `http://<你的IP>:8080` 打开安装向导页面。
 - [VERSION](https://github.com/quicklyon/modstartcms-docker/blob//VERSION) 文件中详细的定义了Makefile可以操作的版本
 - [docker-compose.yml](https://github.com/quicklyon/modstartcms-docker/blob//docker-compose.yml)
 
 ## 七、版本升级
 
-<!-- 这里是镜像的【版本升级】信息，通过命令维护，详情参考：https://github.com/quicklyon/template-toolkit -->
+<!-- 这里是应用的【应用升级】信息，通过命令维护，详情参考：https://github.com/quicklyon/doc-toolkit -->
+容器镜像已为版本升级做了特殊处理，当检测数据（数据库/持久化文件）版本与镜像内运行的程序版本不一致时，会进行数据库结构的检查，并自动进行数据库升级操作。
+
+因此，升级版本只需要更换镜像版本号即可：
+
+> 修改 docker-compose.yml 文件
+
+```diff
+...
+  modstartcms:
+-    image: easysoft/modstartcms:4.7.0-20220916
++    image: easysoft/modstartcms:4.8.0-20220927
+    container_name: modstartcms
+...
+```
+
+更新服务
+
+```bash
+# 是用新版本镜像更新服务
+docker-compose up -d
+
+# 查看服务状态和镜像版本
+docker-compose ps
+```

@@ -1,14 +1,14 @@
 server {
     listen       80;
-    server_name  _;
+    server_name  {{APP_DOMAIN}};
     charset utf-8;
     index index.php index.html;
     root /apps/modstartcms/public;
     autoindex off;
 
-    add_header Access-Control-Allow-Origin *;
+    add_header Access-Control-Allow-Origin '*';
     add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
-    add_header Access-Control-Allow-Headers *;
+    add_header Access-Control-Allow-Headers '*';
 
     location ^~ /.git {
         deny all;
