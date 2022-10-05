@@ -10,7 +10,7 @@
 
 ## 快速参考
 
-- 通过 [渠成软件百宝箱](https://www.qucheng.com/app-install/install-modstart-<number>.html) 一键安装 **ModStartCMS**
+- 快速体验 [ModStartCMS](https://www.qucheng.com/app-install/modstartcms-install-172.html)
 - [Dockerfile 源码](https://github.com/quicklyon/modstartcms-docker)
 - [ModStartCMS 源码](https://github.com/modstart/ModStartCMS)
 - [ModStartCMS 官网](https://modstart.com/)
@@ -49,6 +49,7 @@ ModStartCMS官网：[https://modstart.com/](https://modstart.com/)
 
 <!-- 这里是镜像的【Tag】信息，通过命令维护，详情参考：https://github.com/quicklyon/template-toolkit -->
 - [latest](https://github.com/modstart/ModStartCMS/releases)
+- [4.9.0-20221005](https://github.com/modstart/ModStartCMS/releases/tag/4.9.0)
 - [4.8.0-20220927](https://github.com/modstart/ModStartCMS/releases/tag/4.8.0)
 
 推荐从 [Docker Hub Registry](https://hub.docker.com/r/easysoft/modstartcms) 拉取我们构建好的官方Docker镜像。

@@ -6,7 +6,7 @@
     "GitUrl": "https://github.com/modstart/ModStartCMS",
     "DockerfileUrl": "https://github.com/quicklyon/modstartcms-docker",
     "DockerfileRepoBranch":"",
-    "InstallDocUrl": "https://www.qucheng.com/app-install/install-modstart-<number>.html",
+    "InstallDocUrl": "https://www.qucheng.com/app-install/modstartcms-install-172.html",
     "Docker": {
         "Name": "modstartcms",
         "OS": "debian-11",

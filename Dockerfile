@@ -33,20 +33,21 @@ ARG VERSION
 ENV APP_VER=${VERSION}
 ENV EASYSOFT_APP_NAME="ModStart $APP_VER"
 
-# RUN mkdir /apps \
-#     && cd /apps \
-#     && curl -skL -o modstartcms.tar.gz https://github.com/modstart/ModStartCMS/archive/refs/tags/${APP_VER}.tar.gz \
-#     && tar xvzf modstartcms.tar.gz \
-#     && mv ModStartCMS-${VERSION} modstartcms \
-#     && rm -rf modstartcms.tar.gz
-
 RUN mkdir /apps \
     && cd /apps \
-    && curl -skL -o modstartcms.zip https://github.com/modstart/ModStartCMS/archive/refs/heads/master.zip \
-    && unzip modstartcms.zip \
-    && mv ModStartCMS-master modstartcms \
-    && rm -rf modstartcms.zip \
+    && curl -skL -o modstartcms.tar.gz https://github.com/modstart/ModStartCMS/archive/refs/tags/${APP_VER}.tar.gz \
+    && tar xvzf modstartcms.tar.gz \
+    && mv ModStartCMS-${VERSION} modstartcms \
+    && rm -rf modstartcms.tar.gz \
     && rm -f /etc/nginx/sites-enabled/*
+
+# RUN mkdir /apps \
+#     && cd /apps \
+#     && curl -skL -o modstartcms.zip https://github.com/modstart/ModStartCMS/archive/refs/heads/master.zip \
+#     && unzip modstartcms.zip \
+#     && mv ModStartCMS-master modstartcms \
+#     && rm -rf modstartcms.zip \
+#     && rm -f /etc/nginx/sites-enabled/*
 
 # Copy modstart config files
 COPY debian/rootfs /

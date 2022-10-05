@@ -10,7 +10,7 @@
 
 ## 快速参考
 
-- 通过 [渠成软件百宝箱]({{APP_INSTALL_DOC_URL}}) 一键安装 **{{APP_NAME}}**
+- 快速体验 [{{APP_NAME}}]({{APP_INSTALL_DOC_URL}})
 - [Dockerfile 源码]({{APP_DOCKERFILE_GIT_URL}})
 - [{{APP_NAME}} 源码]({{APP_GIT_URL}})
 - [{{APP_NAME}} 官网]({{APP_HOME}})
