@@ -6,8 +6,6 @@
 
 # shellcheck disable=SC1091
 
-set -Eeuo pipefail
-
 . debian/prebuildfs/opt/easysoft/scripts/liblog.sh
 
 TODAY=$(date +%Y%m%d)
@@ -20,6 +18,8 @@ export LATEST_VER
 BODY=$( echo "$MATE_INFO" | jq -r .body)
 export BODY
 
+TITLE=$( echo "$MATE_INFO" | jq -r .name)
+export TITLE
 
 CURRENT_VER=$( cat VERSION)
 export CURRENT_VER
@@ -42,14 +42,14 @@ add_newtag(){
   
   # 如果tag不存在，添加新tag
   if [ "$tag_exist" == "" ];then
-    sed -i "2 a - [$ver-$TODAY]($GITURL/releases/tag/v$ver)" .template/03-release-tags.md
+    sed -i "2 a - [$ver-$TODAY]($GITURL/releases/tag/$ver)" .template/03-release-tags.md
   fi
 
   cat .template/03-release-tags.md
 }
 #====== main =======
 if [ "$LATEST_VER" != "$CURRENT_VER" ];then
-  info "ZincSearch new version->$LATEST_VER was detected."
+  info "ModStartCMS new version->$LATEST_VER was detected."
   
   # 将新版本写入到版本文件
   echo "$LATEST_VER" > VERSION
@@ -67,7 +67,7 @@ if [ "$LATEST_VER" != "$CURRENT_VER" ];then
   make build \
   && make smoke-test \
   && git add . \
-  && git commit -m "ZincSearch update to $LATEST_VER" \
+  && git commit -m "ModStartCMS update to $LATEST_VER" \
   && git push \
   && gh release create v"$LATEST_VER" -F changelog/"$TODAY".md
 else

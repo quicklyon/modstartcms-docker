@@ -49,6 +49,7 @@ ModStartCMS官网：[https://modstart.com/](https://modstart.com/)
 
 <!-- 这里是镜像的【Tag】信息，通过命令维护，详情参考：https://github.com/quicklyon/template-toolkit -->
 - [latest](https://github.com/modstart/ModStartCMS/releases)
+- [5.0.0-20221020](https://github.com/modstart/ModStartCMS/releases/tag/5.0.0)
 - [4.9.0-20221005](https://github.com/modstart/ModStartCMS/releases/tag/4.9.0)
 - [4.8.0-20220927](https://github.com/modstart/ModStartCMS/releases/tag/4.8.0)
 
@@ -125,8 +126,8 @@ docker-compose logs -f modstartcms
 **说明:**
 
 - 启动成功后，打开浏览器输入 `http://<你的IP>:8080` 打开安装向导页面。
-- [VERSION](https://github.com/quicklyon/modstartcms-docker/blob//VERSION) 文件中详细的定义了Makefile可以操作的版本
-- [docker-compose.yml](https://github.com/quicklyon/modstartcms-docker/blob//docker-compose.yml)
+- [VERSION](https://github.com/quicklyon/modstartcms-docker/blob/master/VERSION) 文件中详细的定义了Makefile可以操作的版本
+- [docker-compose.yml](https://github.com/quicklyon/modstartcms-docker/blob/master/docker-compose.yml)
 
 ## 七、版本升级
 
