@@ -14,7 +14,7 @@ else
     if [ "$MIRROR" = "true" ];then
         sed -i -r 's/(deb|security).debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
     fi
-    alias install_cmd='apt-get update -qq && apt-get install -y --no-install-recommends'
+    alias install_cmd='apt-get update -qq && apt-get install -y --force-yes --no-install-recommends'
 fi
 
 export DEBIAN_FRONTEND=noninteractive
