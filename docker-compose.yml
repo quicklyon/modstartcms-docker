@@ -14,7 +14,7 @@ services:
     networks:
       - net
 
-  modstart:
+  modstartcms:
     image: hub.qucheng.com/app/modstartcms:${TAG:-latest}
     container_name: modstartcms
     ports:
