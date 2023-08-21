@@ -7,12 +7,12 @@ MIRROR=${MIRROR:-false}
 
 if [ "$OS_NAME" = "alpine" ];then
     if [ "$MIRROR" = "true" ];then
-        sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
+        sed -i 's/dl-cdn.alpinelinux.org/archive.debian.org/g' /etc/apk/repositories
     fi
     alias install_cmd='apk add --no-cache'
 else
     if [ "$MIRROR" = "true" ];then
-        sed -i -r 's/(deb|security).debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+        sed -i -r 's/(deb|security).debian.org/archive.debian.org/g' /etc/apt/sources.list
     fi
     alias install_cmd='apt-get update -qq && apt-get install -y --force-yes --no-install-recommends'
 fi

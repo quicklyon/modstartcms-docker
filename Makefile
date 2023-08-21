@@ -6,12 +6,16 @@ export TAG=$(VERSION)-$(BUILD_DATE)
 help: ## this help
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {sub("\\\\n",sprintf("\n%22c"," "), $$2);printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
+build-base: ## 构建基础镜像
+	docker build --build-arg IS_CHINA="true" \
+	-t hub.qucheng.com/base/$(APP_NAME):php7.0.33-fpm-jessie -f Dockerfile.base .
+
 build: ## 构建镜像
-	docker build --build-arg VERSION=$(VERSION) --build-arg IS_CHINA="true" -t hub.qucheng.com/app/$(APP_NAME):$(TAG) -f Dockerfile .
+	docker build --build-arg VERSION=$(VERSION) -t hub.qucheng.com/app/$(APP_NAME):$(TAG) -f Dockerfile .
 	docker tag hub.qucheng.com/app/$(APP_NAME):$(TAG) hub.qucheng.com/app/$(APP_NAME)
 
 build-public: ## 国外构建镜像
-	docker build --build-arg VERSION=$(VERSION) --build-arg IS_CHINA="true" -t easysoft/$(APP_NAME):$(TAG) -f Dockerfile .
+	docker build --build-arg VERSION=$(VERSION) -t easysoft/$(APP_NAME):$(TAG) -f Dockerfile .
 	docker tag easysoft/$(APP_NAME):$(TAG) easysoft/$(APP_NAME)
 
 push: ## push 镜像到 hub.qucheng.com
